@@ -39,7 +39,7 @@ static int __init driver_init(void)
     retval = register_chrdev(MYMAJOR, "my_dev_nr", &fops);
     if(retval == 0)
     {
-        printk("device_numer - registered device number Major: %d, Minor: %d\n", MYMAJOR, 0);
+        printk("device_number - registered device number Major: %d, Minor: %d\n", MYMAJOR, 0);
     }
     else if(retval > 0)
     {
