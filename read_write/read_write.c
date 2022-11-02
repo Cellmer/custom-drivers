@@ -32,7 +32,7 @@ static ssize_t driver_read(struct file *File, char *user_buffer, size_t count, l
 }
 
 // function called when user want to write to the device file
-static ssize_t driver_write(struct file *File, char *user_buffer, size_t count, loff_t *offs)
+static ssize_t driver_write(struct file *File, const char *user_buffer, size_t count, loff_t *offs)
 {
     int to_copy, not_copied, delta;
 
