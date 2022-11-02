@@ -70,7 +70,7 @@ static struct file_operations fops = {
 };
 
 // function called when the module is loaded into the kernel
-static int __init driver_init(void)
+static int __init driver_initialize(void)
 {
     int retval;
     printk("Hello Kernel!\n");
@@ -100,5 +100,5 @@ static void __exit driver_exit(void)
     printk(KERN_ALERT "Goodbye Kernel!\n");
 }
 
-module_init(driver_init);
+module_init(driver_initialize);
 module_exit(driver_exit);
