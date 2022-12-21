@@ -78,6 +78,8 @@ static int __init keylogger_init(void)
     set_bit(BTN_LEFT, mouse_simulator_input_dev->keybit);
     set_bit(BTN_RIGHT, mouse_simulator_input_dev->keybit);
 
+    mouse_simulator_input_dev->name = "mouse_simulator";
+
     if(input_register_device(mouse_simulator_input_dev))
     {
             printk("Error in input_register_device()!\n");
