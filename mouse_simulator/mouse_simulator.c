@@ -11,34 +11,34 @@ void simulate_mouse_events(int keycode)
     switch(keycode)
     {
         // LEFT CTRL
-        case 29:
+        case KEY_LEFTCTRL:
             input_report_key(mouse_simulator_input_dev, BTN_LEFT, 1);
             input_report_key(mouse_simulator_input_dev, BTN_LEFT, 0);
             input_sync(mouse_simulator_input_dev);
             break;
         // LEFT ALT
-        case 56:
+        case KEY_LEFTALT:
             input_report_key(mouse_simulator_input_dev, BTN_RIGHT, 1);
             input_report_key(mouse_simulator_input_dev, BTN_RIGHT, 0);
             input_sync(mouse_simulator_input_dev);
             break;
         // UP
-        case 103:
+        case KEY_UP:
             input_report_rel(mouse_simulator_input_dev, REL_Y, -10);
             input_sync(mouse_simulator_input_dev);
             break;
         // LEFT
-        case 105:
+        case KEY_LEFT:
             input_report_rel(mouse_simulator_input_dev, REL_X, -10);
             input_sync(mouse_simulator_input_dev);
             break;
         // RIGHT
-        case 106:
+        case KEY_RIGHT:
             input_report_rel(mouse_simulator_input_dev, REL_X, 10);
             input_sync(mouse_simulator_input_dev);
             break;
         // DOWN
-        case 108:
+        case KEY_DOWN:
             input_report_rel(mouse_simulator_input_dev, REL_Y, 10);
             input_sync(mouse_simulator_input_dev);
             break;
