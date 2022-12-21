@@ -83,7 +83,10 @@ static int __init mouse_simulator_init(void)
     if(input_register_device(mouse_simulator_input_dev))
     {
             printk("Error in input_register_device()!\n");
+            input_free_device(mouse_simulator_input_dev);
+            return 1;
     }
+    
     register_keyboard_notifier(&keysniffer_blk);
     printk(KERN_INFO "mouse_simulator: initialization complete.");
     return 0;
