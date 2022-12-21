@@ -10,34 +10,28 @@ void simulate_mouse_events(int keycode)
 {
     switch(keycode)
     {
-        // LEFT CTRL
         case KEY_LEFTCTRL:
             input_report_key(mouse_simulator_input_dev, BTN_LEFT, 1);
             input_report_key(mouse_simulator_input_dev, BTN_LEFT, 0);
             input_sync(mouse_simulator_input_dev);
             break;
-        // LEFT ALT
         case KEY_LEFTALT:
             input_report_key(mouse_simulator_input_dev, BTN_RIGHT, 1);
             input_report_key(mouse_simulator_input_dev, BTN_RIGHT, 0);
             input_sync(mouse_simulator_input_dev);
             break;
-        // UP
         case KEY_UP:
             input_report_rel(mouse_simulator_input_dev, REL_Y, -10);
             input_sync(mouse_simulator_input_dev);
             break;
-        // LEFT
         case KEY_LEFT:
             input_report_rel(mouse_simulator_input_dev, REL_X, -10);
             input_sync(mouse_simulator_input_dev);
             break;
-        // RIGHT
         case KEY_RIGHT:
             input_report_rel(mouse_simulator_input_dev, REL_X, 10);
             input_sync(mouse_simulator_input_dev);
             break;
-        // DOWN
         case KEY_DOWN:
             input_report_rel(mouse_simulator_input_dev, REL_Y, 10);
             input_sync(mouse_simulator_input_dev);
@@ -86,7 +80,7 @@ static int __init mouse_simulator_init(void)
             input_free_device(mouse_simulator_input_dev);
             return 1;
     }
-    
+
     register_keyboard_notifier(&keysniffer_blk);
     printk(KERN_INFO "mouse_simulator: initialization complete.");
     return 0;
